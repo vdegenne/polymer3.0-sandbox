@@ -7,7 +7,5 @@
     "@polymer/iron-flex-layout": "^3.0.0-pre.12",
     "@polymer/polymer": "^3.0.0-pre.12"
   },
-  "devDependencies": {
-    "clang-format": "^1.0.41-c"
-  }
+  "devDependencies": {}
 }
