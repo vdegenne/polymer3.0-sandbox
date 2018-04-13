@@ -1,3 +1,19 @@
 {
-    "": ""
+  "entrypoint": "index.html",
+  "extraDependencies": [
+    "node_modules/@webcomponents/webcomponentsjs/**"
+  ],
+  "npm": true,
+  "moduleResolution": "node",
+  "builds": [
+    {
+      "name": "bundled-amd",
+      "bundle": {
+        "inlineScripts": false
+      },
+      "js": {
+        "transformModulesToAmd": true
+      }
+    }
+  ]
 }
