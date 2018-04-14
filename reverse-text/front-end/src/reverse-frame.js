@@ -1,4 +1,6 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element';
+import * as async from '@polymer/polymer/lib/utils/async.js';
+import { Debouncer } from '@polymer/polymer/lib/utils/debounce.js';
 
 
 
@@ -25,7 +27,21 @@ class ReverseFrame extends PolymerElement {
       `;
   }
 
-  reverse(input) { return input.split('').reverse().join(''); }
+  reverse(input) {
+    this._debouncer = Debouncer.debounce(
+      this._debouncer,
+      async.timeOut.after(2000),
+      () => {
+        fetch('/api', {
+          method: 'POST',
+          body: 'text=adsf',
+          headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded" })
+        }).then(result => {
+          return result.result;
+        })
+      }
+    )
+  }
 }
 
 export { ReverseFrame };
